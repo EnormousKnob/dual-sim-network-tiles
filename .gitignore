@@ -1,0 +1,17 @@
+.gradle/
+**/build/
+local.properties
+*.jks
+*.keystore
+build-check.log
+direct-build.log
+staged-build.log
+.build-stage
+artifacts/
+.idea/
+.vscode/
+.codex/
+.agents/
+.aws/
+*.log
+.DS_Store
