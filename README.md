@@ -1,12 +1,22 @@
-# 双卡网络磁贴
+# 双卡网络磁贴 · Android 双卡切换与 4G/5G 快捷开关
+
+**Dual SIM Network Tiles — Shizuku-powered mobile data SIM switcher and 4G/5G Quick Settings tiles.**
 
 <img src="app/src/main/res/drawable-nodpi/launcher_artwork.png" alt="双卡网络磁贴图标" width="112" />
 
-通过 **Shizuku**，将双卡数据切换和 4G / 5G 网络模式切换放进 Android 下拉快捷面板。
+通过 **Shizuku**，在 Android 下拉快捷设置面板（Quick Settings）中添加两个开关：一键切换双卡手机的默认上网 SIM 卡，以及切换当前数据卡的 4G / 5G 网络模式。适合希望快速切换流量卡、管理手机 5G 开关的用户。
 
 > **兼容性说明：目前仅在三星 Galaxy S24 Ultra、One UI 8.5 系统上测试通过。其他三星型号、其他 One UI 版本及其他品牌手机均未验证，不保证兼容。**
 
-## 功能
+## English overview
+
+Dual SIM Network Tiles is an Android utility that adds two **Quick Settings tiles**: a **mobile data SIM switcher** for changing the default data subscription, and a **4G/5G network mode toggle** for the selected data SIM. It requires **Shizuku**; a non-root setup is available through wireless debugging.
+
+The SIM tile shows SIM 1 or SIM 2, and the network tile shows 4G or 5G according to the configured mode. Enabling 5G allows NR connectivity; it does not guarantee an active 5G connection. Disabling 5G retains the existing LTE and legacy fallback types rather than forcing LTE-only.
+
+**Tested only on Samsung Galaxy S24 Ultra running One UI 8.5. Other devices, Samsung models and Android/One UI versions are untested.** Download the APK from [Releases](https://github.com/EnormousKnob/dual-sim-network-tiles/releases) and grant Shizuku access before adding the tiles.
+
+## 功能：双卡数据切换与 4G/5G 网络模式
 
 - **切换数据卡**：点击磁贴，在两张已启用的普通 SIM 卡之间切换默认上网卡；图标显示 **SIM 1 / SIM 2**，副标题显示卡名称。
 - **切换 4G / 5G**：操作当前默认数据卡，图标随设置显示 **4G / 5G**，模式分别为“4G 优先”和“5G 自动”。
@@ -17,7 +27,7 @@
 
 **网络模式说明：**“5G 自动”表示允许使用 5G，不代表已经连接 5G；“4G 优先”表示禁用 5G，并保留原有 LTE 和低代网络回退，不强制 LTE-only。实际连接取决于信号、运营商、套餐及系统策略。
 
-## 下载与安装
+## APK 下载与 Shizuku 安装设置
 
 从 [Releases](https://github.com/EnormousKnob/dual-sim-network-tiles/releases) 下载 APK。当前版本为 **0.1.4**，发布的 APK 是调试签名测试包，尚未在 Google Play 发布。
 
@@ -27,6 +37,20 @@
 4. 展开面板查看状态，点击磁贴切换。长按磁贴可返回应用；锁屏操作需要先解锁。
 
 重启手机后，通常需要重新启动 Shizuku。应用需要两张已启用的普通 SIM 才能切换默认数据卡。
+
+## 常见问题
+
+### 三星 One UI 如何在下拉快捷面板切换上网卡？
+
+启动 Shizuku 并授权本应用后，添加“数据卡”快捷磁贴。点击即可在两张已启用的普通 SIM 卡之间切换默认移动数据卡，无需每次进入 SIM 卡管理器。此流程目前仅在三星 S24 Ultra / One UI 8.5 上验证通过。
+
+### 4G/5G 快捷开关能关闭 5G 吗？
+
+可以。点击网络磁贴可在“5G 自动”和“4G 优先”之间切换：前者允许使用 5G，后者禁用 5G 并保留原有 4G 及低代网络回退。它不是移动数据总开关，也不是 LTE-only 锁网工具。
+
+### 不 Root 可以切换双卡和网络模式吗？
+
+本项目支持通过无线调试启动 Shizuku 的非 Root 授权方式。普通安装权限本身不足以修改相关电话设置，必须先启动 Shizuku 并授权；设备、固件和运营商策略仍可能限制操作。
 
 ## 测试范围
 
