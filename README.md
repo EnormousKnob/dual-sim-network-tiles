@@ -10,6 +10,20 @@
 
 > 上述实测对应 **0.1.4 基线版**。**0.2.0 功能扩展测试版**新增诊断、接口探测、每卡偏好、原始设置恢复、快捷方式/自动化以及新版界面；弱 5G 信号自动降级为默认关闭的实验功能。新增功能尚待真机验证，详见 [0.2.0 使用与验收说明](docs/V0.2.0.md)。
 
+## 界面预览 · 0.2.0
+
+以下为根据当前布局代码制作的 **HTML/CSS 渲染预览**，不是 Android 模拟器或三星真机截图。卡名称、连接状态及诊断内容均为示例，原生控件、字体及实际显示以设备为准；不代表新功能已通过真机验证。点击图片可查看大图。
+
+<table>
+  <tr><th>首页 · 深色</th><th>每卡偏好 · 浅色</th><th>弱信号监控 · 深色</th><th>诊断 · 浅色</th></tr>
+  <tr>
+    <td><a href="docs/images/ui-home-dark.png"><img src="docs/images/ui-home-dark.png" alt="0.2.0 双卡状态与4G/5G网络模式首页布局预览，示例数据，非真机截图" width="210" /></a></td>
+    <td><a href="docs/images/ui-preferences-light.png"><img src="docs/images/ui-preferences-light.png" alt="0.2.0 固定目标SIM和每卡网络偏好设置布局预览，非真机截图" width="210" /></a></td>
+    <td><a href="docs/images/ui-weak-signal-dark.png"><img src="docs/images/ui-weak-signal-dark.png" alt="0.2.0 默认关闭的弱5G信号实验监控设置布局预览，非真机截图" width="210" /></a></td>
+    <td><a href="docs/images/ui-diagnostics-light.png"><img src="docs/images/ui-diagnostics-light.png" alt="0.2.0 本地诊断报告布局预览，示例内容，非真机截图" width="210" /></a></td>
+  </tr>
+</table>
+
 ## English overview
 
 Dual SIM Network Tiles is an Android utility that adds two **Quick Settings tiles**: a **mobile data SIM switcher** for changing the default data subscription, and a **4G/5G network mode toggle** for the selected data SIM. It requires **Shizuku**; a non-root setup is available through wireless debugging.
