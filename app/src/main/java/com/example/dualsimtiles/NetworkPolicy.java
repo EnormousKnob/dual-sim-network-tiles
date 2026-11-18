@@ -15,4 +15,9 @@ public final class NetworkPolicy {
         }
         return current | NR;
     }
+    public static long setNr(long current,long supported,boolean enabled) {
+        if(current<=0) throw new IllegalStateException("系统未报告网络模式");
+        if(((current&NR)!=0)==enabled) return current;
+        return toggle(current,supported);
+    }
 }

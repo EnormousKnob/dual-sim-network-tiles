@@ -8,6 +8,8 @@
 
 > **兼容性说明：目前仅在三星 Galaxy S24 Ultra、One UI 8.5 系统上测试通过。其他三星型号、其他 One UI 版本及其他品牌手机均未验证，不保证兼容。**
 
+> 上述实测对应 **0.1.4 基线版**。**0.2.0 功能扩展测试版**新增诊断、接口探测、每卡偏好、原始设置恢复、快捷方式/自动化以及新版界面；弱 5G 信号自动降级为默认关闭的实验功能。新增功能尚待真机验证，详见 [0.2.0 使用与验收说明](docs/V0.2.0.md)。
+
 ## English overview
 
 Dual SIM Network Tiles is an Android utility that adds two **Quick Settings tiles**: a **mobile data SIM switcher** for changing the default data subscription, and a **4G/5G network mode toggle** for the selected data SIM. It requires **Shizuku**; a non-root setup is available through wireless debugging.
@@ -16,10 +18,12 @@ The SIM tile shows SIM 1 or SIM 2, and the network tile shows 4G or 5G according
 
 **Tested only on Samsung Galaxy S24 Ultra running One UI 8.5. Other devices, Samsung models and Android/One UI versions are untested.** Download the APK from [Releases](https://github.com/EnormousKnob/dual-sim-network-tiles/releases) and grant Shizuku access before adding the tiles.
 
+The verified baseline is **0.1.4**. The **0.2.0 test build** adds diagnostics, per-SIM preferences, original-setting restoration, explicit shortcuts, token-protected automation and an optional signal-only fallback service. These additions have not yet been device-tested. Weak-signal monitoring is disabled by default and does not perform Internet speed tests.
+
 ## 功能：双卡数据切换与 4G/5G 网络模式
 
 - **切换数据卡**：点击磁贴，在两张已启用的普通 SIM 卡之间切换默认上网卡；图标显示 **SIM 1 / SIM 2**，副标题显示卡名称。
-- **切换 4G / 5G**：操作当前默认数据卡，图标随设置显示 **4G / 5G**，模式分别为“4G 优先”和“5G 自动”。
+- **切换 4G / 5G**：默认操作当前数据卡；0.2.0 可固定操作 SIM 1/2。图标随设置显示 **4G / 5G**，模式分别为“4G 优先”和“5G 自动”。
 - **状态同步**：切换后读取系统设置确认，并同步更新两个磁贴；应用内也能查看默认数据卡、活动数据卡和网络模式。
 - **本地运行**：无广告、无账号、无分析 SDK，不请求互联网权限，不上传 SIM 或网络信息。
 
@@ -29,7 +33,12 @@ The SIM tile shows SIM 1 or SIM 2, and the network tile shows 4G or 5G according
 
 ## APK 下载与 Shizuku 安装设置
 
-从 [Releases](https://github.com/EnormousKnob/dual-sim-network-tiles/releases) 下载 APK。当前版本为 **0.1.4**，发布的 APK 是调试签名测试包，尚未在 Google Play 发布。
+从 [Releases](https://github.com/EnormousKnob/dual-sim-network-tiles/releases) 下载 APK，按需要选择版本：
+
+- **[0.2.0 功能扩展测试版](https://github.com/EnormousKnob/dual-sim-network-tiles/releases/tag/v0.2.0)**：新增六项改进和默认关闭的弱信号实验监控；新功能尚未真机验证。
+- **[0.1.4 已验证基线版](https://github.com/EnormousKnob/dual-sim-network-tiles/releases/tag/v0.1.4)**：双卡切换、4G/5G 切换和图标即时刷新已在三星 S24 Ultra / One UI 8.5 上确认可用。
+
+发布的 APK 均为调试签名测试包，尚未在 Google Play 发布。0.2.0 与 0.1.4 使用相同签名，可覆盖升级；Android 通常不允许直接覆盖降级，回退前请先恢复所需系统设置并留意卸载会清除本地备份。
 
 1. 安装并启动官方 [Shizuku](https://shizuku.rikka.app/zh-hans/guide/setup/)，非 Root 手机可通过无线调试启动。
 2. 安装 APK，打开“双卡网络磁贴”，授予 Shizuku 权限。

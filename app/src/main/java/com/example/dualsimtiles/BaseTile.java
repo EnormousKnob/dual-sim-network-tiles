@@ -88,11 +88,11 @@ public abstract class BaseTile extends TileService {
             tile.setSubtitle(b.getBoolean("activeKnown") && b.getInt("activeId") != b.getInt("subId")
                     ? "当前：" + b.getString("activeCard") : b.getString("card"));
         } else {
-            boolean known = b.getBoolean("modeKnown"), nr = b.getBoolean("nr");
+            boolean known = b.getBoolean("networkModeKnown",b.getBoolean("modeKnown")), nr = b.getBoolean("networkNr",b.getBoolean("nr"));
             tile.setIcon(Icon.createWithResource(this, !known ? R.drawable.ic_network : nr ? R.drawable.ic_network_5g : R.drawable.ic_network_4g));
             tile.setState(!known ? Tile.STATE_UNAVAILABLE : nr ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
             tile.setLabel(!known ? "4G / 5G" : nr ? "5G 自动" : "4G 优先");
-            tile.setSubtitle(!known ? "模式读取失败" : b.getString("card") + (nr ? " · 允许 5G" : " · 禁用 5G"));
+            tile.setSubtitle(!known ? "目标卡不可用或模式未知" : b.getString("networkCard",b.getString("card")) + (nr ? " · 允许 5G" : " · 禁用 5G"));
         }
         tile.setContentDescription(tile.getLabel() + "，" + tile.getSubtitle());
         tile.updateTile();
